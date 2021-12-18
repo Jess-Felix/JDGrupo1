@@ -59,10 +59,10 @@ sysinfo.txt
 crashlytics-build.properties
 
 
-JD Grupo1/Logs/
+Logs/
 
-JD Grupo1/Library/
+Library/
 
-JD Grupo1/UserSettings/
+Temp/
 
-JD Grupo1/Temp/
+UserSettings/
