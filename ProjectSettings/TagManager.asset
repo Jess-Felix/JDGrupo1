@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Black
+  - Blue
+  - Yellow
+  - Red
+  - White
+  - Gray
   layers:
   - Default
   - TransparentFX
@@ -11,14 +17,14 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Ground
+  - Hold
+  - Button
+  - Climb
+  - Player
+  - Invisible
+  - CubeTable
+  - ActiveRange
   - 
   - 
   - 
