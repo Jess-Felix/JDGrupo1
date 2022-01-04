@@ -49,25 +49,29 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
-
-    "com.unity.postprocessing": {
-      "version": "2.2.2",
-
     "com.unity.nuget.newtonsoft-json": {
-      
+      "version": "2.0.0",
       "depth": 1,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
-
+    "com.unity.postprocessing": {
+      "version": "2.2.2",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
     "com.unity.recorder": {
       "version": "2.0.3-preview.1",
       "depth": 0,
       "source": "registry",
       "dependencies": {
         "com.unity.timeline": "1.0.0"
-
+      },
+      "url": "https://packages.unity.com"
+    },
     "com.unity.services.core": {
       "version": "1.0.1",
       "depth": 1,
@@ -90,7 +94,6 @@
       "source": "registry",
       "dependencies": {
         "com.unity.sysroot": "0.1.18-preview"
-
       },
       "url": "https://packages.unity.com"
     },
