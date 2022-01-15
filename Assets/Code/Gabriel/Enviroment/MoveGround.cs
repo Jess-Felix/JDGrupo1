@@ -18,7 +18,7 @@ public class MoveGround : MonoBehaviour
         for (int x = 0; x < lineSize; x++)
         {
             positionsFromLine[x] = line.GetPosition(x);
-            Debug.Log(positionsFromLine[x]);
+            //Debug.Log(positionsFromLine[x]);
         }
         oldDirection = (positionsFromLine[1] - positionsFromLine[0]).normalized;
         linePosition = path.transform.position;

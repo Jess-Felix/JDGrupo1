@@ -8,25 +8,40 @@ public class Grab : MonoBehaviour
     // Start is called before the first frame update
     bool holdingAnyObject = false;
     GameObject objectHolder, oldObject;
+    public GameObject groundDetection;
     public void GrabIt(GameObject anotherObject)
     {
-        Debug.Log(objectHolder+" == "+oldObject);
-        if (holdingAnyObject == false)
+       
         {
-            rbGrab = anotherObject.GetComponent<Rigidbody>();
-            rbGrab.useGravity = false;
-            rbGrab.constraints = RigidbodyConstraints.FreezeAll;
-            anotherObject.transform.parent = grabGameObject.transform;
-            anotherObject.transform.localPosition = Vector3.zero;
-            
-           holdingAnyObject = true;
-            objectHolder = anotherObject;
+            Debug.Log(objectHolder + " == " + oldObject);
+            if (holdingAnyObject == false)
+            {
+                rbGrab = anotherObject.GetComponent<Rigidbody>();
+                rbGrab.useGravity = false;
+                rbGrab.constraints = RigidbodyConstraints.FreezeAll;
+
+                anotherObject.transform.parent = grabGameObject.transform;
+                anotherObject.transform.localPosition = Vector3.zero;
+                holdingAnyObject = true;
+                objectHolder = anotherObject;
+                groundDetection.SendMessage("CubeColor", anotherObject.tag);
+            }
         }
     }
+
+    string corlorDrop = "";
+    public void DropItColor(string _colorDrop)
+    {
+        corlorDrop = _colorDrop;
+        groundDetection.SendMessage("CubeColor", "White");
+    }
+
 
     Rigidbody rbGrab;
     public void DropIt(Vector3 dropPoint)
     {
+        Debug.Log(holdingAnyObject);
+        Debug.DrawLine(transform.position, dropPoint, Color.red, 4);
         if (holdingAnyObject == true)
         {
             rbGrab.constraints = RigidbodyConstraints.None;
@@ -35,7 +50,9 @@ public class Grab : MonoBehaviour
             
             oldObject = objectHolder;
             grabGameObject.transform.position = new Vector3(dropPoint.x, dropPoint.y + 0.5f, dropPoint.z);
+            grabGameObject.tag = "CantHold";
             grabGameObject.transform.DetachChildren();
+            
             Debug.DrawRay(dropPoint, Vector3.up, Color.red, 3);
         }
     }
@@ -50,4 +67,5 @@ public class Grab : MonoBehaviour
             objectHolder.SendMessage("Respaw_");
         }
     }
+
 }
