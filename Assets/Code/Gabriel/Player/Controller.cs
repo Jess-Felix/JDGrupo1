@@ -13,10 +13,10 @@ public class Controller : MonoBehaviour
         fpsCam = _Camera.GetComponentInParent<Camera>();
         // Make the rigid body not change rotation
         if (GetComponent<Rigidbody>())
-            rb.freezeRotation = true;        
+            rb.freezeRotation = true;
     }
 
-    float timeFlow,interactionTime;
+    float timeFlow, interactionTime;
     Vector3 directions;
     private void FixedUpdate()
     {
@@ -30,31 +30,30 @@ public class Controller : MonoBehaviour
 
 
     Vector3 playerPosition;
-    public GameObject Player_,groundDetection;
+    public GameObject Player_;
     string lastKey, recordedLastKey;
     float timeHoldingKey = 0;
     Quaternion recprdedCemeRotation;
     public float speed;
     public Animator AnimeRobot;
     bool MoveKey = false, interact = false, jump = false;
-    Ray raio;
-    RaycastHit hit;
     Camera fpsCam;
+    public bool aimToPick = false;
     void PlayerMove()
     {
         //fowardAnim, rightAnim;
-       
+
         if (Input.anyKey)
         {
             if (Input.GetKey(KeyCode.E))
             {
-                interact = true;
+                //interact = true;
                 Debug.Log("Apertou E");
             }
-            if(Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 jump = true;
-                
+
             }
             if (Input.GetKey(KeyCode.W))
             {
@@ -148,7 +147,7 @@ public class Controller : MonoBehaviour
                 case "D":
                     {
                         //Debug.Log("D");
-                        if(fowardAnim > 0.1f || fowardAnim < -0.1f)
+                        if (fowardAnim > 0.1f || fowardAnim < -0.1f)
                         {
                             if (fowardAnim > 0.1f)
                             {
@@ -167,7 +166,7 @@ public class Controller : MonoBehaviour
                         {
                             rightAnim = rightAnim + speed * timeFlow;
                         }
-                       
+
                         break;
                     }
                 case "DW":
@@ -260,7 +259,7 @@ public class Controller : MonoBehaviour
                 case "AW":
                     {
                         //Debug.Log("AW");
-                        if (rightAnim > - 1)
+                        if (rightAnim > -1)
                         {
                             rightAnim = rightAnim - speed * timeFlow;
                         }
@@ -338,38 +337,33 @@ public class Controller : MonoBehaviour
         }
         if (interact == true && interactionTime > 0.4f)
         {
-            raio.origin = fpsCam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0.0f));
-            raio.direction = fpsCam.transform.forward;
-            if (Physics.Raycast(raio, out hit))
+            if (keyObject.GetComponent<Respaw>().canPick == true)
             {
-                if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Button"))
+                if (hold_ == false)
                 {
-                    Debug.Log(hit.collider.gameObject.name);
-                    Debug.DrawLine(raio.origin, hit.point, Color.blue, 5);
-                    AnimeRobot.SetBool("HoldPress", true);
+                    if (keyObject.layer == LayerMask.NameToLayer("Button"))
+                    {
+                        Debug.Log(keyObject.name);
+                        AnimeRobot.SetBool("HoldPress", true);
+                    }
+                    Debug.Log(keyObject.layer + " " + (Vector3.Distance(keyObject.transform.position, Player_.transform.position)));
+                    Debug.DrawLine(keyObject.transform.position, Player_.transform.position, Color.black, 4);
+
+                    if (keyObject.layer == LayerMask.NameToLayer("Hold"))
+                    {
+                        Debug.Log(keyObject.name);
+                        SendMessage("GrabIt", keyObject);
+                        AnimeRobot.SetBool("HoldPress", true);
+
+                    }
+                    hold_ = true;
+                    interactionTime = 0;
                 }
-                Debug.Log(hit.collider.gameObject.layer + " " + (Vector3.Distance(hit.point, Player_.transform.position)));
-                Debug.DrawLine(hit.point, Player_.transform.position,Color.black,4);
-                if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Hold"))
+                else
                 {
-                    //if (Vector3.Distance(hit.collider.transform.position, Player_.transform.position) < 2.2f)
-                    //{
-                    Debug.Log(hit.collider.gameObject.name);
-                    Debug.Log("Distancia entre o Player e a chave " + Vector3.Distance(hit.collider.transform.position, Player_.transform.position));
-                    Debug.DrawLine(raio.origin, hit.point, Color.blue, 5);
-                    SendMessage("GrabIt", hit.collider.gameObject);
-                    AnimeRobot.SetBool("HoldPress", true);
-                    groundDetection.SendMessage("CubeColor", hit.collider.gameObject.tag);
-                    //}
+                    Debug.Log("Ja esta segurando algum objeto");
                 }
-                else if (hit.collider.gameObject.layer == LayerMask.NameToLayer("ActiveRange") || Vector3.Distance(hit.point, Player_.transform.position) < 2.2f)
-                {
-                    groundDetection.SendMessage("CubeColor", "White");
-                    Debug.Log("DropIt");
-                    SendMessage("DropIt", hit.point);
-                }
-            }            
-            interactionTime = 0;
+            }
         }
         interact = false;
         if (jump == true)
@@ -377,7 +371,7 @@ public class Controller : MonoBehaviour
             AnimeRobot.SetBool("Jump", true);
             jump = false;
         }
-        if(MoveKey == true)
+        if (MoveKey == true)
         {
             AnimeRobot.SetBool("Move", true);
             MoveKey = false;
@@ -388,6 +382,23 @@ public class Controller : MonoBehaviour
         }
     }
 
+    GameObject keyObject;
+    public void ObjectDetection(GameObject obj)
+    {
+        interact = true;
+        keyObject = obj;
+    }
+
+    bool hold_ = false;
+    public void HoldStatus()
+    {
+        hold_ = false;
+    }
+
+
+
+    //////////////////////////////////////////////////////////
+
     private void PlayerMouse()
     {//https://forum.unity.com/threads/mouse-look-script.233903/
         if (axes == RotationAxes.MouseXAndY)
@@ -397,7 +408,7 @@ public class Controller : MonoBehaviour
             rotationY += Input.GetAxis("Mouse Y") * sensitivityY;
             rotationY = Mathf.Clamp(rotationY, minimumY, maximumY);
 
-            _Camera.transform.localEulerAngles = new Vector3(-rotationY,0 , 0);
+            _Camera.transform.localEulerAngles = new Vector3(-rotationY, 0, 0);
             transform.localEulerAngles = new Vector3(0, rotationX, 0);
         }
         else if (axes == RotationAxes.MouseX)
@@ -412,6 +423,9 @@ public class Controller : MonoBehaviour
             transform.localEulerAngles = new Vector3(-rotationY, _Camera.transform.localEulerAngles.y, 0);
         }
     }
+
+    
+
     public GameObject _Camera;
     public int minX, maxX;
     Vector2 mouse;
