@@ -10,11 +10,7 @@ public class Victory : MonoBehaviour
     {
         switch(keyName)
         {
-            case "Black":
-                {
-                    keyBlack = true;
-                    break;
-                }
+
             case "Blue":
                 {
                     keyBlue = true;
@@ -36,7 +32,7 @@ public class Victory : MonoBehaviour
                     break;
                 }
         }
-        if (keyBlack == true && keyBlue == true && keyRed == true && keyYellow == true && keyWhite == true)
+        if (keyBlue == true && keyRed == true && keyYellow == true && keyWhite == true)
         {
             WinCondition();
         }
