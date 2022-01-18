@@ -5,7 +5,7 @@ using UnityEngine;
 public class Victory : MonoBehaviour
 {
     // Start is called before the first frame update
-    bool keyBlue = false, keyRed = false, keyYellow = false, keyWhite = false;
+    public bool keyBlack = true, keyBlue = false, keyRed = false, keyYellow = false, keyWhite = false;
     public void KeyImput(string keyName)
     {
         switch(keyName)
@@ -45,7 +45,7 @@ public class Victory : MonoBehaviour
 
     public void FullReset()
     {
-//
+        keyBlack = true;
         keyBlue = false;
         keyRed = false;
         keyYellow = false;

@@ -22,11 +22,7 @@ public class GroundDetection : MonoBehaviour
             if (cubeColor != "" && tagName != "Gray")
             {
                 Debug.Log("Ground Tag " + tagName + " cubeColor -> " + cubeColor);
-                if (tagName == cubeColor)
-                {
-                    
-                }
-                else 
+                if (tagName != cubeColor)
                 {
                     Debug.Log("Reseta");
                     cubeColor = "White";
@@ -38,7 +34,14 @@ public class GroundDetection : MonoBehaviour
                     keyWhite.SendMessage("Respaw_");
                     keyYellow.SendMessage("Respaw_");
 
+                    keyBlack.layer = LayerMask.NameToLayer("Hold");
+                    keyRed.layer = LayerMask.NameToLayer("Hold");
+                    keyBlue.layer = LayerMask.NameToLayer("Hold");
+                    keyWhite.layer = LayerMask.NameToLayer("Hold");
+                    keyYellow.layer = LayerMask.NameToLayer("Hold");
+
                     transform.parent.transform.position = startPosition;
+                    transform.parent.gameObject.SendMessage("HoldStatus");
                 }
             }
         }
