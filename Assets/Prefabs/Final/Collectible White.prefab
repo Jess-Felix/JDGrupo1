@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5738194180053792501}
   - component: {fileID: 5738194180053792496}
   - component: {fileID: 108989497550637013}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Collectible White
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,3 +123,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dad46ffd8f815c743a0d5cf3583756d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canPick: 1
