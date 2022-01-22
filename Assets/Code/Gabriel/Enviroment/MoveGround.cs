@@ -56,7 +56,7 @@ public class MoveGround : MonoBehaviour
                 directionPlataform = -1;
             }
             contPlataform = contPlataform + directionPlataform;
-            //Debug.LogError("Mudou a Direção " + contPlataform);
+            //Debug.LogError("Mudou a DireÃ§Ã£o " + contPlataform);
             oldDirection = (positionsFromLine[contPlataform] - plataform.transform.position).normalized;
         }
     }
