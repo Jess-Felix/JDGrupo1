@@ -47,23 +47,26 @@ public class PlayerMovement : MonoBehaviour
         
         float moveZ = Input.GetAxis("Vertical");
         float moveX = Input.GetAxis("Horizontal");
+
         
         moveDirection = new Vector3(moveX, 0, moveZ);
+        moveDirection = transform.TransformDirection(moveDirection);
+        
 
         if (isGrounded)
         {
             if (moveDirection != Vector3.zero && !Input.GetKey(KeyCode.LeftShift))
             {
-                Rotate();
+              
                 Walk();
             
             } else if (moveDirection != Vector3.zero && Input.GetKey(KeyCode.LeftShift))
             {
-                Rotate();
+                
                 Run();
             } else if (moveDirection == Vector3.zero)
             {
-                Rotate();
+               
                 Idle();
             }
             
@@ -105,9 +108,5 @@ public class PlayerMovement : MonoBehaviour
         velocity.y = Mathf.Sqrt(jumpHeigth * -2 * gravity);
     }
 
-    private void Rotate()
-    {
-        Quaternion toRotation = Quaternion.LookRotation(moveDirection,Vector3.up);
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
-    }
+    
 }
