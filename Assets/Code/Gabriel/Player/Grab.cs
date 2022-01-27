@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Grab : MonoBehaviour
 {
-    public GameObject grabGameObject;//gameObject que armazena a posição do objeto que esta sendo segurado
+    public GameObject grabGameObject;//gameObject que armazena a posiÃ§Ã£o do objeto que esta sendo segurado
     // Start is called before the first frame update
     bool holdingAnyObject = false;
     GameObject objectHolder, oldObject;
-    public GameObject groundDetection;
+    [SerializeField] private GameObject groundDetection;
     public void GrabIt(GameObject anotherObject)
     {
        
