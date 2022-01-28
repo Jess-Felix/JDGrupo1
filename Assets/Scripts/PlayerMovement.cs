@@ -47,9 +47,11 @@ public class PlayerMovement : MonoBehaviour
         
         float moveZ = Input.GetAxis("Vertical");
         float moveX = Input.GetAxis("Horizontal");
+
         
-        moveDirection = new Vector3(moveX, 0, moveZ).normalized;
+        moveDirection = new Vector3(moveX, 0, moveZ);
         moveDirection = transform.TransformDirection(moveDirection);
+        
 
         if (isGrounded)
         {
@@ -105,4 +107,6 @@ public class PlayerMovement : MonoBehaviour
     {
         velocity.y = Mathf.Sqrt(jumpHeigth * -2 * gravity);
     }
+
+    
 }
