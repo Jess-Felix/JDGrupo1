@@ -41,6 +41,7 @@ public class GroundDetection : MonoBehaviour
                     keyYellow.layer = LayerMask.NameToLayer("Hold");
 
                     transform.parent.transform.position = startPosition;
+                    Debug.Log(transform.parent.name);
                     transform.parent.gameObject.SendMessage("HoldStatus");
                 }
             }
