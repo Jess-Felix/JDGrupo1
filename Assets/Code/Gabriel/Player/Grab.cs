@@ -8,7 +8,7 @@ public class Grab : MonoBehaviour
     // Start is called before the first frame update
     bool holdingAnyObject = false;
     GameObject objectHolder, oldObject;
-    [SerializeField] private GameObject groundDetection;
+    public GameObject groundDetection;
     public void GrabIt(GameObject anotherObject)
     {
        
