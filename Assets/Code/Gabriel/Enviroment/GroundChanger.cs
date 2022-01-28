@@ -16,13 +16,17 @@ public class GroundChanger : MonoBehaviour
     void Start()
     {
         usingMaterial = colorPlataform.GetComponent<MeshRenderer>();
-        listColors = new List<int>();
+        
         colorsToLoad[0] = "Red";
         colorsToLoad[1] = "Blue";
         colorsToLoad[2] = "Yellow";
         colorsToLoad[3] = "Black";
         colorsToLoad[4] = "White";
+
         ground = LayerMask.NameToLayer("Ground");
+
+        listColors = new List<int>();
+
         if (usingRed == true)
         {
             listColors.Add(0);
@@ -43,11 +47,14 @@ public class GroundChanger : MonoBehaviour
         {
             listColors.Add(4);
         }
+
         arrayColors = listColors.ToArray();
+
         StartCoroutine("ColorChanger");
     }
 
     int colorCount = 0;
+
     IEnumerator ColorChanger()
     {
         while (true)
