@@ -8,6 +8,8 @@ public class GroundDetectionv2 : MonoBehaviour
     private LayerMask ground;
     private Vector3 startPosition;
     private string currentSceneName;
+
+    public GameOverFade bool_gameOver;
     private void Start()
     {
         ground = LayerMask.NameToLayer("Ground");
@@ -27,7 +29,8 @@ public class GroundDetectionv2 : MonoBehaviour
                 Debug.Log("Ground Tag " + tagName + " cubeColor -> " + cubeColor);
                 if (tagName != cubeColor)//reseta o cenario se pisar errado
                 {
-                    SceneManager.LoadScene(currentSceneName);
+                    //SceneManager.LoadScene(currentSceneName);
+                    bool_gameOver.gameOver = true;
                 }
             }
         }
