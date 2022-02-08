@@ -21,6 +21,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpHeigth;
 
     [SerializeField] private float rotationSpeed;
+    private bool canDoubleJump;
+    private bool canWallJump;
 
     //References
     private CharacterController controller;
@@ -55,6 +57,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (isGrounded)
         {
+            canWallJump = false;
             if (moveDirection != Vector3.zero && !Input.GetKey(KeyCode.LeftShift))
             {
               
@@ -76,6 +79,13 @@ public class PlayerMovement : MonoBehaviour
             {
                 Jump();
             }
+        }  else if (Input.GetKeyDown(KeyCode.Space) && !canWallJump)
+        {
+            if (canDoubleJump)
+            {
+                DoubleJump();
+            }
+            
         }
         
         controller.Move(moveDirection * Time.deltaTime);
@@ -106,7 +116,13 @@ public class PlayerMovement : MonoBehaviour
     private void Jump()
     {
         velocity.y = Mathf.Sqrt(jumpHeigth * -2 * gravity);
+        canDoubleJump = true;
     }
 
-    
+    private void DoubleJump()
+    {
+        velocity.y += Mathf.Sqrt(jumpHeigth * -2 * gravity);
+        canDoubleJump = false;
+    }
+
 }
