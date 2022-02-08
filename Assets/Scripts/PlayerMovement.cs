@@ -86,6 +86,12 @@ public class PlayerMovement : MonoBehaviour
                 DoubleJump();
             }
             
+        }else
+        {
+
+            moveSpeed = 1.5f;
+            moveDirection *= moveSpeed;
+
         }
         
         controller.Move(moveDirection * Time.deltaTime);
@@ -110,6 +116,7 @@ public class PlayerMovement : MonoBehaviour
     
     private void Idle()
     {
+        Debug.Log("is idle");
         anim.SetFloat("Speed", 0, 0.05f, Time.deltaTime);
     }
 
