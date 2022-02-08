@@ -116,8 +116,9 @@ public class PlayerMovement : MonoBehaviour
     
     private void Idle()
     {
-        Debug.Log("is idle");
+        
         anim.SetFloat("Speed", 0, 0.05f, Time.deltaTime);
+     
     }
 
     private void Jump()
