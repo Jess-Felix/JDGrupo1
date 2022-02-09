@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.UIElements;
 using UnityEngine;
 
 
@@ -7,14 +9,20 @@ public class ObjDetection2 : MonoBehaviour
 {
     private bool interact = false;
     public GameObject keyObject;
+    
+    public ChangePlayerStatus stringObjectTag ;
     private void OnCollisionEnter(Collision collision)
     {
         LayerMask layerID;
         layerID = collision.gameObject.layer;
+        
+        //Get tag from object
+
         if (LayerMask.LayerToName(layerID) == "Hold")
         {            
             keyObject = collision.gameObject;
-            Debug.Log("Pegou o " + keyObject.tag);
+            stringObjectTag.objectTag = keyObject.tag;
+            Debug.Log("Pegou o " + stringObjectTag);
             collision.collider.isTrigger = true;
             collision.gameObject.GetComponent<MeshRenderer>().enabled = false;
             
@@ -40,12 +48,12 @@ public class ObjDetection2 : MonoBehaviour
                         Debug.Log(keyObject.name);
                     }
 
-                    Debug.Log(keyObject.layer + " " + (Vector3.Distance(keyObject.transform.position, transform.position)));
-                    Debug.DrawLine(keyObject.transform.position, transform.position, Color.black, 4);
+                    //Debug.Log(keyObject.layer + " " + (Vector3.Distance(keyObject.transform.position, transform.position)));
+                    //Debug.DrawLine(keyObject.transform.position, transform.position, Color.black, 4);
 
                     if (keyObject.layer == LayerMask.NameToLayer("Hold"))
                     {
-                        Debug.Log(keyObject.name);
+                        //Debug.Log(keyObject.name);
                         GrabIt(keyObject);
                     }
                     holdingKey = true;
@@ -53,7 +61,7 @@ public class ObjDetection2 : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("Ja esta segurando algum objeto");
+                    //Debug.Log("Ja esta segurando algum objeto");
                 }
             }
         }
@@ -67,7 +75,7 @@ public class ObjDetection2 : MonoBehaviour
     [SerializeField] private GameObject groundDetection;
     public void GrabIt(GameObject anotherObject)
     {
-        Debug.Log(objectHolder + " == " + oldObject);
+        //Debug.Log(objectHolder + " == " + oldObject);
         if (holdingAnyObject == false)
         {
             holdingAnyObject = true;
@@ -98,7 +106,7 @@ public class ObjDetection2 : MonoBehaviour
 
             oldObject = objectHolder;
 
-            Debug.DrawRay(dropPoint, Vector3.up, Color.red, 3);
+            //Debug.DrawRay(dropPoint, Vector3.up, Color.red, 3);
         }
     }
 }
