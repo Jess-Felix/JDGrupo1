@@ -21,11 +21,11 @@ public class MoveGround : MonoBehaviour
             //Debug.Log(positionsFromLine[x]);
         }
         oldDirection = (positionsFromLine[1] - positionsFromLine[0]).normalized;
-        linePosition = path.transform.position;
-        thisObjectPosition = transform.position;
-        plataform.transform.position = positionsFromLine[0] + thisObjectPosition + linePosition;
+        linePosition = path.transform.localPosition;
+        thisObjectPosition = transform.localPosition;
+        plataform.transform.localPosition = positionsFromLine[0] + thisObjectPosition + linePosition;
         contPlataform = 1;
-        actualDirection = plataform.transform.position + Vector3.right;
+        actualDirection = plataform.transform.localPosition + Vector3.right;
         
     }
 
@@ -35,17 +35,17 @@ public class MoveGround : MonoBehaviour
     int contPlataform = 0, directionPlataform = 1;
     void FixedUpdate()
     {
-        direction = (positionsFromLine[contPlataform] + thisObjectPosition + linePosition - plataform.transform.position).normalized;
+        direction = (positionsFromLine[contPlataform] + thisObjectPosition + linePosition - plataform.transform.localPosition).normalized;
         //Debug.DrawRay(plataform.transform.position,direction,Color.magenta, 1);
         //Debug.Log(oldDirection + " " + direction);
-        if (Vector3.Distance(positionsFromLine[contPlataform] + thisObjectPosition + linePosition, plataform.transform.position) > 0.01f)
+        if (Vector3.Distance(positionsFromLine[contPlataform] + thisObjectPosition + linePosition, plataform.transform.localPosition) > 0.01f)
         {
-            actualDirection = plataform.transform.position;
+            actualDirection = plataform.transform.localPosition;
             plataform.transform.Translate(direction * speed);           
         }
         else
         {
-            Debug.DrawRay(plataform.transform.position, Vector3.up, Color.blue, 1);
+            Debug.DrawRay(plataform.transform.localPosition, Vector3.up, Color.blue, 1);
             
             if(contPlataform == 0)
             {
@@ -57,7 +57,7 @@ public class MoveGround : MonoBehaviour
             }
             contPlataform = contPlataform + directionPlataform;
             //Debug.LogError("Mudou a Direção " + contPlataform);
-            oldDirection = (positionsFromLine[contPlataform] - plataform.transform.position).normalized;
+            oldDirection = (positionsFromLine[contPlataform] - plataform.transform.localPosition).normalized;
         }
     }
 }

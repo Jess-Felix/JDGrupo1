@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: e171bde5c44eff74782a42c48a78105d, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.3330674, g: 0.4797483, b: 0.57839185, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1460,7 +1460,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 267e2895798b02b42872e9e58ae741d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canPick: 1
 --- !u!54 &323140129
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1706,7 +1705,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 267e2895798b02b42872e9e58ae741d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canPick: 1
 --- !u!95 &351629618
 Animator:
   serializedVersion: 3
@@ -3142,7 +3140,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 267e2895798b02b42872e9e58ae741d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canPick: 1
 --- !u!1001 &766152704
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3361,7 +3358,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 267e2895798b02b42872e9e58ae741d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canPick: 1
 --- !u!1 &816183888
 GameObject:
   m_ObjectHideFlags: 0
@@ -7119,7 +7115,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 267e2895798b02b42872e9e58ae741d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canPick: 1
 --- !u!1 &1864433739
 GameObject:
   m_ObjectHideFlags: 0
@@ -7591,7 +7586,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 267e2895798b02b42872e9e58ae741d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canPick: 1
 --- !u!54 &1892974270
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7853,7 +7847,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 267e2895798b02b42872e9e58ae741d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canPick: 1
 --- !u!54 &1939010560
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8866,8 +8859,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78ca9a97e95fbf84389089bca6a5d0f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyObject: {fileID: 0}
-  groundDetection: {fileID: 8196412405466282861}
 --- !u!4 &188949434207040462
 Transform:
   m_ObjectHideFlags: 0
@@ -12195,7 +12186,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &8196412405466282862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12208,11 +12199,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3161fc9a260d6f448888c143d5ae9e94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyRed: {fileID: 811023432}
-  keyBlue: {fileID: 1671420885}
-  keyWhite: {fileID: 757622013}
-  keyYellow: {fileID: 350875520}
-  cubeColor: White
 --- !u!135 &8196412405466282863
 SphereCollider:
   m_ObjectHideFlags: 0
