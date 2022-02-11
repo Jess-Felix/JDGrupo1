@@ -11,6 +11,8 @@ public class ObjDetection2 : MonoBehaviour
     
     public GameObject keyObject;
     public ChangePlayerStatus stringObjectTag ;
+    
+    
 
     private void OnCollisionEnter(Collision collision)
     {
