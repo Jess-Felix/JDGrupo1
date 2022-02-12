@@ -6,10 +6,13 @@ using UnityEngine;
 public class TargetController : MonoBehaviour
 {
     //Variables
-    [SerializeField] private float mouseSensitivity;
+    private float mouseX, mouseY;
+    Vector2 rotation = Vector2.zero;
+    public float mouseSensitivityX, mouseSensitivityY;
 
     //References
     private Transform parent;
+    
 
     private void Start()
     {
@@ -17,14 +20,20 @@ public class TargetController : MonoBehaviour
         
     }
 
-    private void Update()
+    private void LateUpdate()
     {
         Rotate();
+        
     }
 
     private void Rotate()
     {
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-        parent.Rotate(Vector3.up,mouseX);
+        rotation.y += Input.GetAxis("Mouse X") * mouseSensitivityX * Time.deltaTime;
+        rotation.x += Input.GetAxis("Mouse Y") * mouseSensitivityY * Time.deltaTime;
+
+        rotation.x = Mathf.Clamp(rotation.x, -20, 50);
+        transform.localRotation = Quaternion.Euler(rotation.x, 0, 0);
+        parent.eulerAngles = new Vector2(0, rotation.y);
+        
     }
 }
