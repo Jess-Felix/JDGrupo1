@@ -70,7 +70,7 @@ public class GroundChanger : MonoBehaviour
                 usingMaterial.material = loadColors[colorCount];
                 colorPlataform.tag = colorsToLoad[colorCount];
             }
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(2f);
             colorCount++;
         }
     }    
