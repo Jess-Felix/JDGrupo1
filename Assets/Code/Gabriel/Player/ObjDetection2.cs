@@ -12,6 +12,7 @@ public class ObjDetection2 : MonoBehaviour
     public GameObject keyObject;
     public ChangePlayerStatus stringObjectTag ;
     
+    public AudioSource audioClip;
     
 
     private void OnCollisionEnter(Collision collision)
@@ -26,13 +27,18 @@ public class ObjDetection2 : MonoBehaviour
             //Get tag from object
             keyObject = collision.gameObject;
             stringObjectTag.objectTag = keyObject.tag;
+            
+            //play robot happy sound
+            audioClip.GetComponent<AudioSource>();
+            audioClip.Play();
 
             Debug.Log("Pegou o " + stringObjectTag);
             
             collision.collider.isTrigger = true;
             collision.gameObject.GetComponent<MeshRenderer>().enabled = false;
             
-            interact = true;            
+            interact = true;
+            
         }
     }
 
