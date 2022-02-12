@@ -8,9 +8,13 @@ using UnityEngine;
 public class ObjDetection2 : MonoBehaviour
 {
     private bool interact = false;
-    public GameObject keyObject;
     
+    public GameObject keyObject;
     public ChangePlayerStatus stringObjectTag ;
+    
+    public AudioSource audioClip;
+    
+
     private void OnCollisionEnter(Collision collision)
     {
         LayerMask layerID;
@@ -19,14 +23,22 @@ public class ObjDetection2 : MonoBehaviour
         //Get tag from object
 
         if (LayerMask.LayerToName(layerID) == "Hold")
-        {            
+        {     
+            //Get tag from object
             keyObject = collision.gameObject;
             stringObjectTag.objectTag = keyObject.tag;
+            
+            //play robot happy sound
+            audioClip.GetComponent<AudioSource>();
+            audioClip.Play();
+
             Debug.Log("Pegou o " + stringObjectTag);
+            
             collision.collider.isTrigger = true;
             collision.gameObject.GetComponent<MeshRenderer>().enabled = false;
             
-            interact = true;            
+            interact = true;
+            
         }
     }
 
