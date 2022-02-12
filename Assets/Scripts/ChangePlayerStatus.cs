@@ -28,7 +28,6 @@ public class ChangePlayerStatus : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(objectTag);
         if (objectTag == "Red")
         {
             m[0] = new Material(red);
