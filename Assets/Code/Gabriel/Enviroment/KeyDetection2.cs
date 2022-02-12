@@ -7,6 +7,9 @@ using UnityEngine;
 public class KeyDetection2 : MonoBehaviour
 {
     private Material m = null;
+    public ParticleSystem ps;
+    public AudioSource audioClip;
+    
 
     private void OnTriggerEnter(Collider collision)
     {
@@ -31,7 +34,20 @@ public class KeyDetection2 : MonoBehaviour
             {
                 m = transform.gameObject.GetComponent<Renderer>().material;
             }
-            m.SetColor("_Color",new Color(m.color.r, m.color.g, m.color.b, 0.8f));
+            m.SetColor("_Color",new Color(m.color.r, m.color.g, m.color.b, 0.7f));
+            
+            //Increase particles and velocity on particle system
+            var main = ps.main;
+            main.startSpeed = 1f;
+            var emission = ps.emission;
+            emission.rateOverTime = 80;
+            var fo = ps.forceOverLifetime;
+            fo.y = 2;
+            
+            //Play sound 
+            audioClip.GetComponent<AudioSource>();
+            audioClip.Play();
+            
 
         }
         else if(collision.transform.gameObject.layer == LayerMask.NameToLayer("Hold"))
