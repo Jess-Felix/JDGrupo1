@@ -7,6 +7,8 @@ using UnityEngine;
 
 public class ObjDetection2 : MonoBehaviour
 {
+    [SerializeField] public string currentColor = "White";
+
     private bool interact = false;
     
     public GameObject keyObject;
@@ -15,8 +17,7 @@ public class ObjDetection2 : MonoBehaviour
     public AudioSource audioClip;
     
 
-    private void OnCollisionEnter(Collision collision)
-    {
+    private void OnCollisionEnter(Collision collision) {
         LayerMask layerID;
         layerID = collision.gameObject.layer;
         
@@ -28,12 +29,15 @@ public class ObjDetection2 : MonoBehaviour
             keyObject = collision.gameObject;
             stringObjectTag.objectTag = keyObject.tag;
             
+            // Update the current holding color
+            currentColor = keyObject.tag;
+
             //play robot happy sound
             audioClip.GetComponent<AudioSource>();
             audioClip.Play();
 
             Debug.Log("Pegou o " + stringObjectTag);
-            
+
             collision.collider.isTrigger = true;
             collision.gameObject.GetComponent<MeshRenderer>().enabled = false;
             
@@ -42,13 +46,16 @@ public class ObjDetection2 : MonoBehaviour
         }
     }
 
+    public string GetCurrentColor() {
+        return currentColor;
+    }
 
 
     private float interactionTime;
     private bool holdingKey = false;
     private void Update()
     {
-        interactionTime = interactionTime + Time.deltaTime;
+     /*   interactionTime = interactionTime + Time.deltaTime;
         if (interact == true && interactionTime > 0.4f)
         {
             if (keyObject.GetComponent<Respaw2>().canPick == true)
@@ -78,6 +85,7 @@ public class ObjDetection2 : MonoBehaviour
             }
         }
         interact = false;
+        */
     }
 
     //======
@@ -97,11 +105,9 @@ public class ObjDetection2 : MonoBehaviour
     }
 
 
-    string corlorDrop = "";
     public void DropItColor(string _colorDrop)
     {
-        corlorDrop = _colorDrop;
-        groundDetection.SendMessage("CubeColor", "White");
+        currentColor = "White";
     }
 
 
