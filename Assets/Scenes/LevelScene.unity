@@ -4825,6 +4825,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canPick: 1
+--- !u!1 &765370947 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7167372628592369610, guid: 9ccb9d506d780e049908ac53cb5c5766, type: 3}
+  m_PrefabInstance: {fileID: 646745277}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &765370948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 765370947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bac078ea4b23284ea157134c560045c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loadColors:
+  - {fileID: 2100000, guid: 1ceaad569fd1c194e9136fc02c1205fe, type: 2}
+  - {fileID: 2100000, guid: 6615117605f8d2849bb606722d33a5d0, type: 2}
+  - {fileID: 2100000, guid: 1ba6449a2e289c7468a26c2618df17d1, type: 2}
+  - {fileID: 2100000, guid: e313abf88435a7646ae32b83d4d7b6a9, type: 2}
+  - {fileID: 2100000, guid: d283959cebdfbd74a8316eeed491d8fd, type: 2}
+  colorPlataform: {fileID: 765370947}
+  usingBlack: 1
+  usingBlue: 1
+  usingYellow: 1
+  usingRed: 1
+  usingWhite: 1
 --- !u!1001 &766152704
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6325,6 +6354,35 @@ Transform:
   m_Father: {fileID: 519837672}
   m_RootOrder: 52
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1019178319 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9135782091011660507, guid: 31394946ed349af46949d50f31dcf0a8, type: 3}
+  m_PrefabInstance: {fileID: 2014646773}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1019178320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1019178319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bac078ea4b23284ea157134c560045c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loadColors:
+  - {fileID: 2100000, guid: 1ceaad569fd1c194e9136fc02c1205fe, type: 2}
+  - {fileID: 2100000, guid: 6615117605f8d2849bb606722d33a5d0, type: 2}
+  - {fileID: 2100000, guid: 1ba6449a2e289c7468a26c2618df17d1, type: 2}
+  - {fileID: 2100000, guid: e313abf88435a7646ae32b83d4d7b6a9, type: 2}
+  - {fileID: 2100000, guid: d283959cebdfbd74a8316eeed491d8fd, type: 2}
+  colorPlataform: {fileID: 1019178319}
+  usingBlack: 1
+  usingBlue: 1
+  usingYellow: 1
+  usingRed: 1
+  usingWhite: 1
 --- !u!1001 &1019994090
 PrefabInstance:
   m_ObjectHideFlags: 0
