@@ -8,6 +8,8 @@ public class ShowButton : MonoBehaviour
 {
     public VideoPlayer videoPlayer;
     public GameObject button;
+    public GameObject buttonControls;
+
 
     private void Start()
     {
@@ -17,6 +19,7 @@ public class ShowButton : MonoBehaviour
     {
         print  ("Video Is Over");
         button.SetActive(true);
+        buttonControls.SetActive(true);
     }
  
 }
