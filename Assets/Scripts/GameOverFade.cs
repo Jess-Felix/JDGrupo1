@@ -17,7 +17,7 @@ public class GameOverFade : MonoBehaviour
     private string currentSceneName;
     
     public AudioSource gameOverAudio;
-    private bool m_HasAudioPlayed;
+    private bool m_HasAudioPlayed ;
 
     void Start()
     {
