@@ -15,6 +15,9 @@ public class GameOverFade : MonoBehaviour
     public float displayImageDuration = 0.5f;
     
     private string currentSceneName;
+    
+    public AudioSource gameOverAudio;
+    private bool m_HasAudioPlayed ;
 
     void Start()
     {
@@ -32,6 +35,11 @@ public class GameOverFade : MonoBehaviour
 
     void EndLevel()
     {
+        if (!m_HasAudioPlayed)
+        {
+            gameOverAudio.Play();
+            m_HasAudioPlayed = true;
+        }
         m_Timer += Time.deltaTime;
         gameOverFade.alpha = m_Timer / fadeDuration;
         
