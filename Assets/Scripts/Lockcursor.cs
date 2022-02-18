@@ -9,5 +9,6 @@ public class Lockcursor : MonoBehaviour
     void Update()
     {
         Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = false;
     }
 }
