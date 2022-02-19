@@ -5016,7 +5016,7 @@ Transform:
   m_GameObject: {fileID: 756037556}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.6, y: 11.86, z: 4.2}
-  m_LocalScale: {x: 1, y: 8, z: 1}
+  m_LocalScale: {x: 0.8, y: 8, z: 0.8}
   m_Children:
   - {fileID: 1484752007}
   m_Father: {fileID: 1868275173}
@@ -6371,7 +6371,7 @@ Transform:
   m_GameObject: {fileID: 875532384}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.6, y: 11.86, z: 5.6}
-  m_LocalScale: {x: 1, y: 8, z: 1}
+  m_LocalScale: {x: 0.8, y: 8, z: 0.8}
   m_Children:
   - {fileID: 1250906847}
   m_Father: {fileID: 1868275173}
@@ -17609,7 +17609,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mouseSensitivityX: 400
-  mouseSensitivityY: 150
+  mouseSensitivityY: -150
 --- !u!1 &1222446205
 GameObject:
   m_ObjectHideFlags: 0
@@ -17640,7 +17640,7 @@ Transform:
   m_GameObject: {fileID: 1222446205}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.2, y: 11.86, z: 4.2}
-  m_LocalScale: {x: 1, y: 8, z: 1}
+  m_LocalScale: {x: 0.8, y: 8, z: 0.8}
   m_Children:
   - {fileID: 1039370263}
   m_Father: {fileID: 1868275173}
@@ -30584,7 +30584,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dde6de6304382f4e8bc7d0e8fa3ec68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeDuration: 1
+  fadeDuration: 3
   gameWinFade: {fileID: 1289097247}
   displayImageDuration: 0.5
   gameWinAudio: {fileID: 767284672}
@@ -32544,7 +32544,7 @@ Transform:
   m_GameObject: {fileID: 2113258022}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.2, y: 11.86, z: 5.6}
-  m_LocalScale: {x: 1, y: 8, z: 1}
+  m_LocalScale: {x: 0.8, y: 8, z: 0.8}
   m_Children:
   - {fileID: 1144544162}
   m_Father: {fileID: 1868275173}
