@@ -359,8 +359,8 @@ Light:
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
-  m_Color: {r: 0.9861512, g: 1, b: 0.81509435, a: 1}
-  m_Intensity: 6.87
+  m_Color: {r: 0.8018868, g: 0.8018868, b: 0.8018868, a: 1}
+  m_Intensity: 7
   m_Range: 3.01
   m_SpotAngle: 62
   m_InnerSpotAngle: 21.80208
@@ -2617,6 +2617,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RedCube
       objectReference: {fileID: 0}
+    - target: {fileID: 4885000259099463166, guid: 0f6ee975b50de2f44bab9d5f55d552b8, type: 3}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f6ee975b50de2f44bab9d5f55d552b8, type: 3}
 --- !u!1 &167318439
@@ -3595,7 +3599,7 @@ GameObject:
   - component: {fileID: 311274575}
   - component: {fileID: 311274574}
   - component: {fileID: 311274573}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7041,10 +7045,10 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.6
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -7074,7 +7078,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 2
+  m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -40933,6 +40937,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6549262009433862812, guid: 79d99427616c40c47a16d123fae5a178, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79d99427616c40c47a16d123fae5a178, type: 3}
 --- !u!1001 &5327777255621571941
@@ -41206,7 +41214,7 @@ PrefabInstance:
     - target: {fileID: 1843100524239062881, guid: f481dd159d9cd9d488c6cb158087dc9b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 6454bd5ed3a5803419a62168d951bbe4, type: 2}
+      objectReference: {fileID: 2100000, guid: e2a4c08ee02e64b43bd6ee4c1d80d41f, type: 2}
     - target: {fileID: 1843100524239062882, guid: f481dd159d9cd9d488c6cb158087dc9b, type: 3}
       propertyPath: m_TagString
       value: Gray

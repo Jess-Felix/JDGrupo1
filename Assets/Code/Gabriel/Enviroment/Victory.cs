@@ -72,7 +72,7 @@ public class Victory : MonoBehaviour
         if(m_Timer > fadeDuration + displayImageDuration)
         {
             //Debug.Log("quit");
-            Application.Quit ();
+            LoadB(2);
         }
     }
 
@@ -83,5 +83,11 @@ public class Victory : MonoBehaviour
         keyRed = false;
         keyYellow = false;
         keyWhite = false;
+    }
+    
+    public void LoadB(int sceneNumber)
+    {
+
+        SceneManager.LoadScene(sceneNumber);
     }
 }

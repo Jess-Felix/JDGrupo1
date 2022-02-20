@@ -3,12 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
+using UnityEngine.SceneManagement;
 
-public class ShowButton : MonoBehaviour
+public class ShowMenu : MonoBehaviour
 {
     public VideoPlayer videoPlayer;
-    public GameObject button;
-    public GameObject buttonControls;
+    
+
 
 
     private void Start()
@@ -18,9 +19,16 @@ public class ShowButton : MonoBehaviour
     void CheckOver(UnityEngine.Video.VideoPlayer vp)
     {
         print  ("Video Is Over");
-        button.SetActive(true);
-        buttonControls.SetActive(true);
+        LoadB(2);
+
     }
+    
+    public void LoadB(int sceneNumber)
+    {
+
+        SceneManager.LoadScene(sceneNumber);
+    }
+
  
 }
 
