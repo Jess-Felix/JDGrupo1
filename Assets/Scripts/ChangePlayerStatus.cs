@@ -46,6 +46,12 @@ public class ChangePlayerStatus : MonoBehaviour
             m[0] = new Material(yellow);
             m = player.GetComponent<SkinnedMeshRenderer>().materials = m;
             
+        } else if (objectTag == "Default")
+        {
+            //change light material to yellow
+            m[0] = new Material(white);
+            m = player.GetComponent<SkinnedMeshRenderer>().materials = m;
+            
         } else if (objectTag == "White")
         {
             //change light material to yellow
