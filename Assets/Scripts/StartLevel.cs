@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Video;
 using UnityEngine.SceneManagement;
 
-public class ShowMenu : MonoBehaviour
+public class StartLevel : MonoBehaviour
 {
     public VideoPlayer videoPlayer;
     

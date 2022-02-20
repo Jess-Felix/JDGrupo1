@@ -72,7 +72,7 @@ public class Victory : MonoBehaviour
         if(m_Timer > fadeDuration + displayImageDuration)
         {
             //Debug.Log("quit");
-            LoadB(2);
+            LoadB(0);
         }
     }
 
