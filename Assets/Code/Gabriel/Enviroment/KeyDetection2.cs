@@ -27,7 +27,7 @@ public class KeyDetection2 : MonoBehaviour
             collision.gameObject.SendMessage("DropItColor", gameObject.tag);
             
             //change player color to white again
-            player.GetComponent<ChangePlayerStatus>().objectTag = "White";
+            player.GetComponent<ChangePlayerStatus>().objectTag = "Default";
             
             //change Beam material opacity
             if (m == null)
