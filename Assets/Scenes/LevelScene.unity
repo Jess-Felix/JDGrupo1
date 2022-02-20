@@ -9878,7 +9878,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: a45f1bf1116fcdc439433c0cb542f48f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -37344,7 +37344,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeDuration: 3
   gameWinFade: {fileID: 1289097247}
-  displayImageDuration: 0.5
+  displayImageDuration: 3
   gameWinAudio: {fileID: 767284672}
   keyBlack: 1
   keyBlue: 0
